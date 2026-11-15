@@ -8,6 +8,7 @@ ASTRA is a NASA Space Apps Challenge 2026 prototype for inspecting health-relate
 
 - [Astra dashboard](https://astra-aqeela.vercel.app/)
 - [API health](https://astra-aqeela-api.vercel.app/health)
+- [Interactive API docs](https://astra-aqeela-api.vercel.app/docs)
 
 The hosted demo uses synthetic telemetry. Synced packets are stored in temporary, instance-local storage and may be lost when the API instance is replaced.
 
