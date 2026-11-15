@@ -3,7 +3,7 @@
 from datetime import datetime
 from typing import Any
 
-from backend.app.services.telemetry import build_alerts
+from .telemetry import build_alerts
 
 TelemetryReading = dict[str, Any]
 TimelineEvent = dict[str, Any]

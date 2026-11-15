@@ -1,14 +1,15 @@
 from datetime import datetime, timezone
+from os import getenv
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
-from backend.app.services.offline_sync import save_synced_packets
-from backend.app.services.health_engine import build_health_analysis
-from backend.app.services.mission_timeline import build_mission_timeline
-from backend.app.services.osdr_research import OSDRUnavailableError, search_osdr_datasets
+from .services.offline_sync import save_synced_packets
+from .services.health_engine import build_health_analysis
+from .services.mission_timeline import build_mission_timeline
+from .services.osdr_research import OSDRUnavailableError, search_osdr_datasets
 
-from backend.app.services.telemetry import (
+from .services.telemetry import (
     build_alerts,
     build_baseline_summary,
     generate_telemetry,
@@ -52,7 +53,15 @@ app = FastAPI(
 # allowed origins explicit instead of opening the API to every website.
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://127.0.0.1:3000"],
+    allow_origins=[
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+        *[
+            origin.strip()
+            for origin in getenv("ASTRA_ALLOWED_ORIGINS", "").split(",")
+            if origin.strip()
+        ],
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

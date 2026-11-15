@@ -9,7 +9,7 @@ from datetime import datetime
 from statistics import mean
 from typing import Any
 
-from backend.app.services.telemetry import TelemetryReading
+from .telemetry import TelemetryReading
 
 
 REQUIRED_FIELDS = (
