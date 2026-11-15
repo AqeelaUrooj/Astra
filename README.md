@@ -4,6 +4,13 @@ ASTRA is a NASA Space Apps Challenge 2026 prototype for inspecting health-relate
 
 **Important:** the dashboard generates synthetic crew readings. v0.7 adds a live, read-only search of NASA OSDR study metadata for research discovery; it does not download or analyze the study measurements. ASTRA does not use real astronaut telemetry, provide medical diagnosis, or support operational flight decisions. Its rule thresholds and trend calculations are illustrative only.
 
+## Live demo
+
+- [Astra dashboard](https://astra-aqeela.vercel.app/)
+- [API health](https://astra-aqeela-api.vercel.app/health)
+
+The hosted demo uses synthetic telemetry. Synced packets are stored in temporary, instance-local storage and may be lost when the API instance is replaced.
+
 ## Prototype capabilities
 
 - Dark mission-operations dashboard with 6-, 24-, and 72-hour synthetic telemetry views.
